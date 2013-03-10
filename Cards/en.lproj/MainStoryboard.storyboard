@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="MainViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="3K4-H8-3Jw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Pick A Card" id="1hU-ge-xsE">
+                                        <barButtonItem key="leftBarButtonItem" title="Shuffle Deck" id="1pq-Vj-nLI">
+                                            <connections>
+                                                <action selector="newGame" destination="2" id="a8h-nv-Jua"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Settings" id="c2l-jy-zdr">
+                                            <connections>
+                                                <segue destination="6" kind="modal" modalTransitionStyle="flipHorizontal" id="3WM-nv-dNc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="Ilj-HA-kHW">
+                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Draw A Card" width="156" id="IEu-RP-o0z">
+                                        <connections>
+                                            <action selector="drawCard" destination="2" id="nFs-Dx-Ilv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Cards Left: 52" style="plain" id="3ws-2B-qcN"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="GameButton" destination="1pq-Vj-nLI" id="xXe-HJ-eGS"/>
+                        <outlet property="bottomBar" destination="Ilj-HA-kHW" id="c4w-hD-DhO"/>
+                        <outlet property="cardCounterLabel" destination="3ws-2B-qcN" id="UNh-N2-dvn"/>
+                        <outlet property="drawButton" destination="IEu-RP-o0z" id="Noh-rS-DFx"/>
+                        <outlet property="topBar" destination="3K4-H8-3Jw" id="FQN-rh-pFP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-51" y="182"/>
+        </scene>
+        <!--Flipside View Controller-->
+        <scene sceneID="9">
+            <objects>
+                <viewController id="6" customClass="FlipsideViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="12">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Settings" id="13">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="14">
+                                            <connections>
+                                                <action selector="done:" destination="6" id="16"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="uQF-ZN-0dg">
+                                <rect key="frame" x="124" y="85" width="176" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <connections>
+                                    <action selector="deckNumberChange:" destination="6" eventType="valueChanged" id="AJP-ef-ATi"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Aef-bU-bsI">
+                                <rect key="frame" x="124" y="175" width="176" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                                <connections>
+                                    <action selector="deckTypeChange:" destination="6" eventType="valueChanged" id="dSi-X5-7Vc"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="bHc-tz-ct6">
+                                <rect key="frame" x="124" y="265" width="176" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="ON"/>
+                                    <segment title="OFF"/>
+                                </segments>
+                                <connections>
+                                    <action selector="deckShuffleChange:" destination="6" eventType="valueChanged" id="Y9y-Cr-nyt"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Decks: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qIH-VF-gCR">
+                                <rect key="frame" x="20" y="96" width="58" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Style: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5t7-6L-Y5G">
+                                <rect key="frame" x="20" y="186" width="58" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Shuffle:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="x07-Ii-TQ3">
+                                <rect key="frame" x="20" y="276" width="58" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Copyright 2012" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="y1o-Y3-S0e">
+                                <rect key="frame" x="96" y="414" width="118" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Buffalo Hird" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5fG-7E-e1e">
+                                <rect key="frame" x="96" y="436" width="118" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="deckNumber" destination="uQF-ZN-0dg" id="9cc-8w-7Kn"/>
+                        <outlet property="deckShuffle" destination="bHc-tz-ct6" id="gEW-tw-qB9"/>
+                        <outlet property="deckType" destination="Aef-bU-bsI" id="nF3-lD-hYa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="182"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="FlipsideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deckNumberChange:"/>
+                <relationship kind="action" name="deckShuffleChange:"/>
+                <relationship kind="action" name="deckTypeChange:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="deckNumber" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="deckShuffle" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="deckType" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="drawCard"/>
+                <relationship kind="action" name="newGame"/>
+                <relationship kind="outlet" name="GameButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="bottomBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="cardContainer" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cardCounterLabel" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="cardView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="drawButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="nextCardView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="secondCardView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tapCenterView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="thirdCardView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="topBar" candidateClass="UINavigationBar"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
